@@ -1,5 +1,6 @@
-<ul>
-  <li class="text" *ngFor="let item of items | async">
-    {{item | json}}
-  </li>
-</ul>
+<nav>
+  <a routerLink="/clients" routerLinkActive="active">Clients</a>
+  <a routerLink="/packages" routerLinkActive="active">Packages</a>
+</nav>
+
+<router-outlet></router-outlet>

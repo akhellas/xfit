@@ -1,0 +1,9 @@
+<p>
+  packages works!
+</p>
+
+<ul>
+  <li class="text" *ngFor="let package of packages | async">
+    {{package | json}}
+  </li>
+</ul>
