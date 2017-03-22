@@ -5,14 +5,10 @@ import { HttpModule } from '@angular/http';
 import { RouterModule, Routes } from '@angular/router';
 import { AngularFireModule } from 'angularfire2';
 
-import { AppRoutingModule } from './app-routing.module';
-
-import { ClientsService } from './clients/clients.service';
-import { PackagesService } from './packages/packages.service';
+import { ClientsModule } from './clients/clients.module';
+import { PackagesModule } from './packages/packages.module';
 
 import { AppComponent } from './app.component';
-import { ClientsComponent } from './clients/clients.component';
-import { PackagesComponent } from './packages/packages.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 export const firebaseConfig = {
@@ -23,24 +19,26 @@ export const firebaseConfig = {
   messagingSenderId: "903412146842"
 };
 
+const appRoutes: Routes = [
+    //{ path: '', redirectTo: '/clients', pathMatch: 'full' },
+    { path: '**', component: PageNotFoundComponent }
+];
+
 @NgModule({
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
+    ClientsModule,
+    PackagesModule,
     AngularFireModule.initializeApp(firebaseConfig),
-    AppRoutingModule
+    RouterModule.forRoot(appRoutes)
   ],
   declarations: [
     AppComponent,
-    ClientsComponent,
-    PackagesComponent,
     PageNotFoundComponent
   ],
-  providers: [
-    ClientsService, 
-    PackagesService
-  ],
-  bootstrap: [AppComponent]
+  providers: [],
+  bootstrap: [ AppComponent ]
 })
 export class AppModule { }
