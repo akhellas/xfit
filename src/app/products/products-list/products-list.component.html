@@ -1,7 +1,17 @@
 <h2>Products List</h2>
 
-<ul>
-  <li class="text" *ngFor="let product of products | async" (click)="onSelect(product)">
-    {{product | json}}
-  </li>
-</ul>
+<table>
+  <tbody>
+    <tr *ngFor="let product of products | async">
+      <td>{{product | json}}</td>
+      <td><button (click)="onEdit(product)">Edit</button></td>
+      <td><button (click)="onDelete(product)">Delete</button></td>
+    </tr>
+  </tbody>
+  <tfoot>
+    <tr>
+      <td></td>
+      <td colspan="2"><button (click)="onInsert()" style="width: 100%">New</button></td>
+    </tr>
+  </tfoot>
+</table>

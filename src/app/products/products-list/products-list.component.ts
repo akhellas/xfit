@@ -21,7 +21,15 @@ export class ProductsListComponent implements OnInit {
     this.products = this.service.products;
   }
 
-  onSelect(product: any) {
-    this.router.navigate(['/products', product.id]);
+  onInsert() {
+    this.service.insert();
+  }
+
+  onEdit(product: any) {
+    this.router.navigate(['/products', product.$key]);
+  }
+  
+  onDelete(product: any) {
+    this.service.remove(product);
   }
 }

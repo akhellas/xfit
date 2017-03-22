@@ -5,9 +5,8 @@ import { HttpModule } from '@angular/http';
 import { RouterModule, Routes } from '@angular/router';
 import { AngularFireModule } from 'angularfire2';
 
-import { ClientsModule } from './clients/clients.module';
+import { CompaniesModule } from './companies/companies.module';
 import { ProductsModule } from './products/products.module';
-import { PackagesModule } from './packages/packages.module';
 
 import { AppComponent } from './app.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
@@ -27,14 +26,15 @@ const appRoutes: Routes = [
     { path: '**', component: PageNotFoundComponent }
 ];
 
+export const company: string = '-KfrhqG4_zYW7b5f8vvU';
+
 @NgModule({
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
-    ClientsModule,
+    CompaniesModule,
     ProductsModule,
-    PackagesModule,
     AngularFireModule.initializeApp(firebaseConfig),
     RouterModule.forRoot(appRoutes)
   ],

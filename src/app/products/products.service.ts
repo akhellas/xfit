@@ -1,17 +1,36 @@
 import { Injectable } from '@angular/core';
-import { AngularFire, FirebaseListObservable } from 'angularfire2';
+import { AngularFire, FirebaseListObservable, FirebaseObjectObservable } from 'angularfire2';
+
+import { Product } from './products.models';
 
 @Injectable()
 export class ProductsService {
-  af: AngularFire;
   public products: FirebaseListObservable<any>;
+  public product: FirebaseObjectObservable<Product>;
 
-  constructor(af: AngularFire) {
-    this.af = af;
-    this.products = this.af.database.list('stores/store1/products');
+  private url = 'products';
+
+  constructor(
+    private af: AngularFire
+  ) { 
+    this.products = this.af.database.list(this.url);
   }
 
-  product(id: string) {
-    return this.af.database.object('stores/store1/products/' + id);
+  getSingle(key: string) {
+    this.product = this.af.database.object(this.url + '/' + key);
+    return this.product;
+  }
+
+  insert() {
+    let product = { 
+      name: 'New product', 
+      price: 0, 
+      duration: 0 
+    };
+    this.products.push(product);
+  }
+
+  remove(product: any) {
+    this.products.remove(product.$key);
   }
 }

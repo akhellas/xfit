@@ -1,0 +1,28 @@
+<h2>Companies List</h2>
+
+<div class="col-lg-6">
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Address</th>
+        <th>Active</th>
+        <th><button (click)="onInsert()" class="btn btn-primary" style="width: 100%">New</button></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of items | async">
+        <td>{{item.name}}</td>
+        <td>{{item.address}}</td>
+        <td>{{item.isActive}}</td>
+        <td style="width: 140px">
+          <button (click)="onEdit(item)" class="btn btn-primary">Edit</button>
+        <button (click)="onDelete(item)" class="btn btn-danger">Delete</button>
+        </td>
+      </tr>
+    </tbody>
+    <tfoot>
+
+    </tfoot>
+  </table>
+</div>

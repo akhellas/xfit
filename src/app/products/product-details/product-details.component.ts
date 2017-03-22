@@ -4,6 +4,7 @@ import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/switchMap';
 
 import { ProductsService } from '../products.service';
+import { Product } from '../products.models';
 
 @Component({
   selector: 'app-product-details',
@@ -21,7 +22,7 @@ export class ProductDetailsComponent implements OnInit {
 
   ngOnInit() {
     this.route.params
-              .switchMap((params: Params) => this.service.product(params['id']))
+              .switchMap((params: Params) => this.service.getSingle(params['key']))
               .subscribe((product: any) => this.product = product);
   }
 }
