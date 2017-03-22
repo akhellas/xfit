@@ -7,6 +7,9 @@ import { AngularFireModule } from 'angularfire2';
 
 import { AppRoutingModule } from './app-routing.module';
 
+import { ClientsService } from './clients/clients.service';
+import { PackagesService } from './packages/packages.service';
+
 import { AppComponent } from './app.component';
 import { ClientsComponent } from './clients/clients.component';
 import { PackagesComponent } from './packages/packages.component';
@@ -34,7 +37,10 @@ export const firebaseConfig = {
     PackagesComponent,
     PageNotFoundComponent
   ],
-  providers: [],
+  providers: [
+    ClientsService, 
+    PackagesService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

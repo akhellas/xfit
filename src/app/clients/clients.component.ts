@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { AngularFire, FirebaseListObservable } from 'angularfire2';
+import { Observable } from 'rxjs';
+
+import { ClientsService } from './clients.service';
 
 @Component({
   selector: 'app-clients',
@@ -7,10 +9,10 @@ import { AngularFire, FirebaseListObservable } from 'angularfire2';
   styleUrls: ['./clients.component.css']
 })
 export class ClientsComponent implements OnInit {
-  clients: FirebaseListObservable<any[]>;
-  
-  constructor(af: AngularFire) {
-    this.clients = af.database.list('stores/store1/clients');
+  clients: Observable<any>;
+
+  constructor(service: ClientsService) {
+    this.clients = service.clients;
   }
 
   ngOnInit() { }

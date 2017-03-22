@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { AngularFire, FirebaseListObservable } from 'angularfire2';
+import { Observable } from 'rxjs';
+
+import { PackagesService } from './packages.service';
 
 @Component({
   selector: 'app-packages',
@@ -7,10 +9,10 @@ import { AngularFire, FirebaseListObservable } from 'angularfire2';
   styleUrls: ['./packages.component.css']
 })
 export class PackagesComponent implements OnInit {
-  packages: FirebaseListObservable<any[]>;
+  packages: Observable<any[]>;
   
-  constructor(af: AngularFire) {
-    this.packages = af.database.list('stores/store1/packages');
+  constructor(service: PackagesService) {
+    this.packages = service.packages;
   }
 
   ngOnInit() { }
