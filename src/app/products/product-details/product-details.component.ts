@@ -17,12 +17,11 @@ export class ProductDetailsComponent implements OnInit {
     private route: ActivatedRoute,
     private router: Router,
     private service: ProductsService
-    ) { }
+  ) { }
 
   ngOnInit() {
     this.route.params
               .switchMap((params: Params) => this.service.product(params['id']))
               .subscribe((product: any) => this.product = product);
   }
-
 }

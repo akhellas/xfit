@@ -5,7 +5,13 @@ import { AngularFire, FirebaseListObservable } from 'angularfire2';
 export class PackagesService {
   public packages: FirebaseListObservable<any[]>;
 
-  constructor(af: AngularFire) {
+  constructor(
+    private af: AngularFire
+  ) {
     this.packages = af.database.list('stores/store1/packages');
+  }
+
+  pkg(id: string) {
+    return this.af.database.object('stores/store1/packages/' + id);
   }
 }

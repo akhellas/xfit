@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Router } from '@angular/router';
+import { Observable } from 'rxjs/Observable';
 
 import { PackagesService } from '../packages.service';
 
@@ -11,11 +12,16 @@ import { PackagesService } from '../packages.service';
 export class PackagesListComponent implements OnInit {
   packages: Observable<any[]>;
   
-  constructor(service: PackagesService) {
-    this.packages = service.packages;
-  }
+  constructor(
+    private router: Router,
+    private service: PackagesService
+  ) { }
 
   ngOnInit() {
+    this.packages = this.service.packages;
   }
 
+  onSelect(pkg: any) {
+    this.router.navigate(['/packages', pkg.id]);
+  }
 }
