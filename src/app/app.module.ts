@@ -6,7 +6,6 @@ import { RouterModule, Routes } from '@angular/router';
 import { AngularFireModule } from 'angularfire2';
 
 import { CompaniesModule } from './companies/companies.module';
-import { ProductsModule } from './products/products.module';
 
 import { AppComponent } from './app.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
@@ -26,7 +25,7 @@ const appRoutes: Routes = [
     { path: '**', component: PageNotFoundComponent }
 ];
 
-export const company: string = '-KfrhqG4_zYW7b5f8vvU';
+export const company: string = '-Kfrps-nEI3ccNOS9eeI';
 
 @NgModule({
   imports: [
@@ -34,7 +33,6 @@ export const company: string = '-KfrhqG4_zYW7b5f8vvU';
     FormsModule,
     HttpModule,
     CompaniesModule,
-    ProductsModule,
     AngularFireModule.initializeApp(firebaseConfig),
     RouterModule.forRoot(appRoutes)
   ],

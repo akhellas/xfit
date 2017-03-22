@@ -1,8 +1,17 @@
-<nav>
-  <a routerLink="/" routerLinkActive="active">Home</a>
-  <a routerLink="/companies" routerLinkActive="active">Companies</a>
-  <a routerLink="/products" routerLinkActive="active">Products</a>
-  <a routerLink="/customers" routerLinkActive="active">Customers</a>
+<nav class="nav navbar-inverse">
+  <div class="container">
+    <div class="navbar-header">
+      <a class="navbar-brand">xFit</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li><a routerLink="/" routerLinkActive="active">Home</a></li>
+      <li><a routerLink="/companies" routerLinkActive="active">Companies</a></li>
+      <li><a routerLink="/products" routerLinkActive="active">Products</a></li>
+      <li><a routerLink="/customers" routerLinkActive="active">Customers</a></li>
+    </ul>
+  </div>
 </nav>
 
-<router-outlet></router-outlet>
+<div class="container">
+    <router-outlet></router-outlet>
+</div>
