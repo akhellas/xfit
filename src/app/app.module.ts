@@ -6,6 +6,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { AngularFireModule } from 'angularfire2';
 
 import { ClientsModule } from './clients/clients.module';
+import { ProductsModule } from './products/products.module';
 import { PackagesModule } from './packages/packages.module';
 
 import { AppComponent } from './app.component';
@@ -32,6 +33,7 @@ const appRoutes: Routes = [
     FormsModule,
     HttpModule,
     ClientsModule,
+    ProductsModule,
     PackagesModule,
     AngularFireModule.initializeApp(firebaseConfig),
     RouterModule.forRoot(appRoutes)
