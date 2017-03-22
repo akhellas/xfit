@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { Observable } from 'rxjs/Observable';
+
+import { ProductsService } from '../products.service';
 
 @Component({
   selector: 'app-products-list',
@@ -6,10 +10,18 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./products-list.component.css']
 })
 export class ProductsListComponent implements OnInit {
-
-  constructor() { }
+  products: Observable<any>;
+  
+  constructor(
+    private router: Router,
+    private service: ProductsService
+  ) { }
 
   ngOnInit() {
+    this.products = this.service.products;
   }
 
+  onSelect(product: any) {
+    this.router.navigate(['/products', product.id]);
+  }
 }
