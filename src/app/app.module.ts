@@ -9,6 +9,7 @@ import { ClientsModule } from './clients/clients.module';
 import { PackagesModule } from './packages/packages.module';
 
 import { AppComponent } from './app.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 export const firebaseConfig = {
@@ -20,7 +21,8 @@ export const firebaseConfig = {
 };
 
 const appRoutes: Routes = [
-    //{ path: '', redirectTo: '/clients', pathMatch: 'full' },
+    //{ path: '', redirectTo: '/dashboard', pathMatch: 'full' },
+    { path: '', component: DashboardComponent },
     { path: '**', component: PageNotFoundComponent }
 ];
 
@@ -36,6 +38,7 @@ const appRoutes: Routes = [
   ],
   declarations: [
     AppComponent,
+    DashboardComponent,
     PageNotFoundComponent
   ],
   providers: [],
