@@ -6,6 +6,8 @@ import { RouterModule, Routes } from '@angular/router';
 import { AngularFireModule } from 'angularfire2';
 
 import { CompaniesModule } from './companies/companies.module';
+import { CustomersModule } from './customers/customer.module'
+import { ProductModule } from './products/product.module'
 
 import { AppComponent } from './app.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
@@ -20,9 +22,9 @@ export const firebaseConfig = {
 };
 
 const appRoutes: Routes = [
-    //{ path: '', redirectTo: '/dashboard', pathMatch: 'full' },
-    { path: '', component: DashboardComponent },
-    { path: '**', component: PageNotFoundComponent }
+  //{ path: '', redirectTo: '/dashboard', pathMatch: 'full' },
+  { path: '', component: DashboardComponent },
+  { path: '**', component: PageNotFoundComponent }
 ];
 
 export const company: string = '-Kfrps-nEI3ccNOS9eeI';
@@ -33,6 +35,8 @@ export const company: string = '-Kfrps-nEI3ccNOS9eeI';
     FormsModule,
     HttpModule,
     CompaniesModule,
+    CustomersModule,
+    ProductModule,
     AngularFireModule.initializeApp(firebaseConfig),
     RouterModule.forRoot(appRoutes)
   ],
@@ -42,6 +46,6 @@ export const company: string = '-Kfrps-nEI3ccNOS9eeI';
     PageNotFoundComponent
   ],
   providers: [],
-  bootstrap: [ AppComponent ]
+  bootstrap: [AppComponent]
 })
 export class AppModule { }

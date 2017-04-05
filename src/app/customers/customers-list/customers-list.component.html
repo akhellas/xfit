@@ -1,0 +1,31 @@
+<div class="container">
+
+  <h2>Πελατολόγιο</h2>
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Όνομα</th>
+        <th>Επίθετο</th>
+        <th>Ημ/νία</th>
+        <th><button (click)="onInsert()" class="btn btn-primary" style="width: 100%">New</button></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of items | async; let index = index">
+        <td>{{index + 1}}</td>
+        <td>{{item.name}}</td>
+        <td>{{item.surname}}</td>
+        <td>{{item.birthDay}}</td>
+        <td style="width: 180px">
+          <button (click)="onEdit(item)" class="btn btn-primary">Άνοιγμα</button>
+        <button (click)="onDelete(item)" class="btn btn-danger">Διαγραφή</button>
+        </td>
+      </tr>
+    </tbody>
+    <tfoot>
+    </tfoot>
+  </table>
+
+</div>

@@ -2,24 +2,23 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs/Observable';
 
-import { CompaniesService } from '../companies.service';
+import { CustomersService } from '../customers.service';
 
 @Component({
-  selector: 'app-companies-list',
-  templateUrl: './companies-list.component.html',
-  styleUrls: ['./companies-list.component.css']
+  selector: 'app-customers-list',
+  templateUrl: './customers-list.component.html',
+  styleUrls: ['./customers-list.component.css']
 })
-export class CompaniesListComponent implements OnInit {
+export class CustomersListComponent implements OnInit {
   items: Observable<any>;
 
   constructor(
     private router: Router,
-    private service: CompaniesService
+    private service: CustomersService
   ) { }
 
   ngOnInit() {
     this.items = this.service.items;
-    
   }
 
   onInsert() {
@@ -27,7 +26,7 @@ export class CompaniesListComponent implements OnInit {
   }
 
   onEdit(item: any) {
-    this.router.navigate(['companies', item.$key]);
+    this.router.navigate(['customers', item.$key]);
   }
   
   onDelete(item: any) {
