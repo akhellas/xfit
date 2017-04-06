@@ -10,6 +10,12 @@ export class CompaniesService {
 
   constructor(private af: AngularFire) {
     this.items = af.database.list(this.url);
+
+    this.items.subscribe(items => {
+      console.log(items);
+    }, error => {
+      //toastr.error(error);
+    });
   }
 
   item(key: string) : FirebaseObjectObservable<any> {
