@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { RouterModule, Routes } from '@angular/router';
-import { AngularFireModule } from 'angularfire2';
+import { AngularFireModule, AuthProviders, AuthMethods } from 'angularfire2';
 
 import { CompaniesModule } from './companies/companies.module';
 import { CustomersModule } from './customers/customer.module'
@@ -19,6 +19,11 @@ export const firebaseConfig = {
   databaseURL: "https://xfit-b727f.firebaseio.com",
   storageBucket: "xfit-b727f.appspot.com",
   messagingSenderId: "903412146842"
+};
+
+export const firebaseAuthConfig = {
+  provider: AuthProviders.Google,
+  method: AuthMethods.Popup
 };
 
 const appRoutes: Routes = [
@@ -37,7 +42,7 @@ export const company: string = '-Kfrps-nEI3ccNOS9eeI';
     CompaniesModule,
     CustomersModule,
     ProductModule,
-    AngularFireModule.initializeApp(firebaseConfig),
+    AngularFireModule.initializeApp(firebaseConfig, firebaseAuthConfig),
     RouterModule.forRoot(appRoutes)
   ],
   declarations: [
