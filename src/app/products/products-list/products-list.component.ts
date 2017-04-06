@@ -24,7 +24,14 @@ export class ProductsListComponent implements OnInit {
   }
 
   onInsert() {
-    this.service.insert();
+    let product = new Product();
+    product.name = "Νέο";
+    product.duration = 1;
+    product.price = 50;
+    product.isPerVisit = false;
+    product.isActive = false;
+
+    this.service.insert(product);
   }
 
   onEdit(item: any) {

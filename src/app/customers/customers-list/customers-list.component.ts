@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { Observable } from 'rxjs/Observable';
 
 import { CustomersService } from '../customers.service';
+import { Customer } from '../customer';
 
 @Component({
   selector: 'app-customers-list',
@@ -22,7 +23,10 @@ export class CustomersListComponent implements OnInit {
   }
 
   onInsert() {
-    this.service.insert();
+    let customer = new Customer();
+    customer.name = 'New Customer';
+
+    this.service.insert(customer);
   }
 
   onEdit(item: any) {

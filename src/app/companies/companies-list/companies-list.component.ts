@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { Observable } from 'rxjs/Observable';
 
 import { CompaniesService } from '../companies.service';
+import { Company }  from '../company';
 
 @Component({
   selector: 'app-companies-list',
@@ -22,7 +23,11 @@ export class CompaniesListComponent implements OnInit {
   }
 
   onInsert() {
-    this.service.insert();
+    let company = new Company();
+    company.name = "Νέα Εταιρεία";
+    company.isActive = true;
+
+    this.service.insert(company);
   }
 
   onEdit(item: any) {
