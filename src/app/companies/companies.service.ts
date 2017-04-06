@@ -17,7 +17,11 @@ export class CompaniesService {
   }
 
   insert() {
-    this.items.push(new Company('New company', '', true));
+    let company = new Company();
+    company.name = "Νέα Εταιρεία";
+    company.isActive = true;
+    
+    this.items.push(company);
   }
 
   update(item: any) {

@@ -23,17 +23,6 @@ export class ProductsListComponent implements OnInit {
     this.items = this.service.items;
   }
 
-  // test() {
-  //   var newprod = new Product();
-  //   newprod.description = "new";
-  //   newprod.duration = 1;
-  //   newprod.isPerVisit = false;
-  //   newprod.status = false;
-  //   newprod.price = 20;
-
-
-  // }
-
   onInsert() {
     this.service.insert();
   }

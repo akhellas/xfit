@@ -1,8 +1,7 @@
 export class Product {
-    public description: string;
+    public name: string;
     public duration: number;
-    public isPerVisit: boolean;
     public price: number;
-    public status: boolean;
-
+    public isPerVisit: boolean;
+    public isActive: boolean;
 }

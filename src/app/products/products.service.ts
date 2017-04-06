@@ -17,18 +17,19 @@ export class ProductsService {
   }
 
   insert() {
-    var newProduct = new Product();
-    newProduct.description = "Νέο";
-    newProduct.duration = 1;
-    newProduct.isPerVisit = false;
-    newProduct.status = false;
-    newProduct.price = 50;
-    this.items.push(newProduct);
+    let product = new Product();
+    product.name = "Νέο";
+    product.duration = 1;
+    product.price = 50;
+    product.isPerVisit = false;
+    product.isActive = false;
+    
+    this.items.push(product);
   }
 
   update(item: any) {
     this.af.database.object(this.url + '/' + item.$key)
-      .update(item);
+                    .update(item);
   }
 
   remove(item: any) {

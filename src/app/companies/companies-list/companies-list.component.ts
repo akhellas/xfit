@@ -19,7 +19,6 @@ export class CompaniesListComponent implements OnInit {
 
   ngOnInit() {
     this.items = this.service.items;
-    
   }
 
   onInsert() {
