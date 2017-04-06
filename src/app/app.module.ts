@@ -1,11 +1,18 @@
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { RouterModule, Routes } from '@angular/router';
-import { AngularFireModule } from 'angularfire2';
+
+import { AngularFireModule, AuthProviders, AuthMethods } from 'angularfire2';
+import { ToastModule } from 'ng2-toastr';
 
 import { CompaniesModule } from './companies/companies.module';
+import { CustomersModule } from './customers/customer.module'
+import { ProductModule } from './products/product.module'
+
+import { ToastService } from './toast.service';
 
 import { AppComponent } from './app.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
@@ -19,10 +26,15 @@ export const firebaseConfig = {
   messagingSenderId: "903412146842"
 };
 
+export const firebaseAuthConfig = {
+  provider: AuthProviders.Google,
+  method: AuthMethods.Popup
+};
+
 const appRoutes: Routes = [
-    //{ path: '', redirectTo: '/dashboard', pathMatch: 'full' },
-    { path: '', component: DashboardComponent },
-    { path: '**', component: PageNotFoundComponent }
+  { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
+  { path: 'dashboard', component: DashboardComponent },
+  { path: '**', component: PageNotFoundComponent }
 ];
 
 export const company: string = '-Kfrps-nEI3ccNOS9eeI';
@@ -30,18 +42,22 @@ export const company: string = '-Kfrps-nEI3ccNOS9eeI';
 @NgModule({
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     FormsModule,
     HttpModule,
     CompaniesModule,
-    AngularFireModule.initializeApp(firebaseConfig),
-    RouterModule.forRoot(appRoutes)
+    CustomersModule,
+    ProductModule,
+    AngularFireModule.initializeApp(firebaseConfig, firebaseAuthConfig),
+    RouterModule.forRoot(appRoutes),
+    ToastModule.forRoot()
   ],
   declarations: [
     AppComponent,
     DashboardComponent,
     PageNotFoundComponent
   ],
-  providers: [],
-  bootstrap: [ AppComponent ]
+  providers: [ToastService],
+  bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,0 +1,31 @@
+<h2>Προιόντα</h2>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Περιγραφή</th>
+      <th>Διάρκεια</th>
+      <th>Τιμή</th>
+      <th>Πακέτο Επισκέψεων</th>
+      <th>Ενεργό</th>
+      <th><button (click)="onInsert()" class="btn btn-primary" style="width: 100%">Νέο</button></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let item of items | async; let index = index">
+      <td>{{index + 1 }}</td>
+      <td>{{item.name}}</td>
+      <td>{{item.duration}}</td>
+      <td>{{item.price}}</td>
+      <td><input type="checkbox" [ngModel]="item.isPerVisit"></td>
+      <td><input type="checkbox" [ngModel]="item.isActive"></td>
+      <td style="width: 185px">
+        <button (click)="onEdit(item)" class="btn btn-primary">Άνοιγμα</button>
+        <button (click)="onDelete(item)" class="btn btn-danger">Διαγραφή</button>
+      </td>
+    </tr>
+  </tbody>
+  <tfoot>
+  </tfoot>
+</table>
