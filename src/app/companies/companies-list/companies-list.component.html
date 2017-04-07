@@ -1,25 +1,38 @@
-<h2>Εταιρείες</h2>
+<div class="container is-fluid">
+  <section class="hero is-info">
+    <div class="hero-body">
+      <div class="container">
+        <h1 class="title">
+          Εταιρίες
+        </h1>
+        <h2 class="subtitle">
+          Λίστα εταιριών - Διαχείριση
+        </h2>
+        <table class="table is-striped">
+          <thead>
+            <tr>
+              <th>Όνομα</th>
+              <th>Διεύθυνση</th>
+              <th>Ενεργό</th>
+              <th><button (click)="onInsert()" class="button is-primary" style="width: 100%">Νέο</button></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let item of items | async">
+              <td>{{item.name}}</td>
+              <td>{{item.address}}</td>
+              <td>{{item.isActive}}</td>
+              <td style="width: 187px">
+                <button (click)="onEdit(item)" class="button is-primary">Επεξ</button>
+                <button (click)="onDelete(item)" class="button is-danger">Διαγραφή</button>
+              </td>
+            </tr>
+          </tbody>
+          <tfoot>
+          </tfoot>
+        </table>
+      </div>
+    </div>
+  </section>
 
-<table class="table">
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Address</th>
-      <th>Active</th>
-      <th><button (click)="onInsert()" class="btn btn-primary" style="width: 100%">New</button></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let item of items | async">
-      <td>{{item.name}}</td>
-      <td>{{item.address}}</td>
-      <td>{{item.isActive}}</td>
-      <td style="width: 140px">
-        <button (click)="onEdit(item)" class="btn btn-primary">Edit</button>
-        <button (click)="onDelete(item)" class="btn btn-danger">Delete</button>
-      </td>
-    </tr>
-  </tbody>
-  <tfoot>
-  </tfoot>
-</table>
+</div>
