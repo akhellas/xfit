@@ -1,44 +1,39 @@
-<nav class="nav has-shadow"  style="margin-bottom:20px;">
-  <div class="container">
-    <div class="nav-left">
-      <a class="nav-item is-tab" routerLink="/">xFit</a>
-      <a class="nav-item is-tab" routerLink="/" routerLinkActive="active">Home</a>
-      <a class="nav-item is-tab" routerLink="/companies" routerLinkActive="active">Companies</a>
-      <a class="nav-item is-tab" routerLink="/products" routerLinkActive="active">Products</a>
-      <a class="nav-item is-tab" routerLink="/customers" routerLinkActive="active">Customers</a>
-    </div>
-    <span class="nav-toggle">
-      <span></span>
-    <span></span>
-    <span></span>
-    </span>
-    <!-- Collect the nav links, forms, and other content for toggling -->
-    <div class="nav-right nav-menu">
-      <a href="#" class="nav-item is-tab" (click)="login()">
-       {{ (af.auth | async)?.auth.displayName || 'Sign in (google)' }} 
-       <span class="caret"></span></a>
-      <a class="nav-item is-tab" (click)="logout()"><span class="icon is-small"><i style="padding-top:2px" class="fa fa-sign-out"></i></span> Sign out</a>
-    </div>
-  </div>
-</nav>
+<section class="hero is-dark">
 
-<div class="container-fluid">
+  <nav class="nav">
+
+    <div class="nav-left">
+      <a class="nav-item">
+        <span class="icon">
+          <i class="fa fa-times"></i>
+        </span>
+        <span>Fit</span>
+      </a>
+    </div>
+
+    <div class="nav-center">
+      <a class="nav-item is-tab" routerLink="/dashboard" routerLinkActive="is-active">Dashboard</a>
+      <a class="nav-item is-tab" routerLink="/companies" routerLinkActive="is-active">Companies</a>
+      <a class="nav-item is-tab" routerLink="/products" routerLinkActive="is-active">Products</a>
+      <a class="nav-item is-tab" routerLink="/customers" routerLinkActive="is-active">Customers</a>
+    </div>
+
+    <div class="nav-right nav-menu">
+      <a class="nav-item">
+        Help
+      </a>
+      <a class="nav-item" (click)="login()" *ngIf="!(af.auth | async)?.auth.displayName">Sign in with Google</a>
+      <a class="nav-item" (click)="logout()" *ngIf="(af.auth | async)?.auth.displayName">
+        <span class="icon">
+          <i class="fa fa-user-circle"></i>
+        </span>
+        {{ (af.auth | async)?.auth.displayName || 'Sign in (Google)' }}
+      </a>
+      
+    </div>
+  </nav>
+</section>
+
+<div class="container">
   <router-outlet></router-outlet>
 </div>
-<!--Testing footer-->
-<footer class="footer" style="position:absolute;bottom:0;width:100%">
-  <div class="container">
-    <div class="content has-text-centered">
-      <p>
-        <strong>Bulma</strong> by <a href="http://jgthms.com">Jeremy Thomas</a>. The source code is licensed
-        <a href="http://opensource.org/licenses/mit-license.php">MIT</a>. The website content
-        is licensed <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">CC ANS 4.0</a>.
-      </p>
-      <p>
-        <a class="icon" href="https://github.com/jgthms/bulma">
-          <i class="fa fa-github"></i>
-        </a>
-      </p>
-    </div>
-  </div>
-</footer>

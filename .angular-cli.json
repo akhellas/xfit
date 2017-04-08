@@ -19,10 +19,7 @@
       "testTsconfig": "tsconfig.spec.json",
       "prefix": "app",
       "styles": [
-        "styles.css",
-        "../node_modules/fontawesome/css/font-awesome.min.css",
-        "../node_modules/bulma/css/bulma.css",
-        "../node_modules/ng2-toastr/bundles/ng2-toastr.min.css"
+        "styles.sass"
       ],
       "scripts": [
       ],
@@ -55,7 +52,8 @@
     }
   },
   "defaults": {
-    "styleExt": "css",
-    "component": {}
+    "styleExt": "sass",
+    "component": {
+    }
   }
 }
