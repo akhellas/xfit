@@ -1,13 +1,12 @@
 <section class="hero is-dark">
-
   <nav class="nav">
 
     <div class="nav-left">
-      <a class="nav-item">
+      <a class="nav-item" routerLink="/about">
         <span class="icon">
-          <i class="fa fa-tint"></i>
+          <i class="fa fa-cube"></i>
         </span>
-        <span style="margin-left: 5px">xFit</span>
+        <span>xFit</span>
       </a>
     </div>
 
@@ -18,27 +17,43 @@
       <a class="nav-item is-tab" routerLink="/customers" routerLinkActive="is-active">Customers</a>
     </div>
 
-    <div class="nav-right nav-menu">
+    <div class="nav-right">
       <a class="nav-item" (click)="login()" *ngIf="!(af.auth | async)?.auth.displayName">
         <span class="icon">
           <i class="fa fa-google"></i>
         </span>
-        Sign in
-        </a>
+        <span>Sign in</span>
+      </a>
       <a class="nav-item" (click)="logout()" *ngIf="(af.auth | async)?.auth.displayName">
         <span class="icon">
           <i class="fa fa-user-circle"></i>
         </span>
-        {{ (af.auth | async)?.auth.displayName || 'Sign in (Google)' }}
+        <span>{{ (af.auth | async)?.auth.displayName }}</span>
       </a>
     </div>
   </nav>
 </section>
 
-<div class="container">
-  <div class="column is-10 is-offset-1">
-    <div class="">
+<section class="section">
+  <div class="container">
+    <div class="column is-10 is-offset-1">
       <router-outlet></router-outlet>
     </div>
   </div>
+</section>
+
+<footer class="footer">
+<div class="container">
+  <div class="content has-text-centered is-light">
+    <p>
+      <strong>xFit</strong> powered by
+    </p>
+    <p>
+      <a href="http://angular.io/">Angular</a>,
+      <a href="http://firebase.google.com/">Firebase</a>
+      and
+      <a href="http://bulma.io/">Bulma</a>
+    </p>
+  </div>
 </div>
+</footer>

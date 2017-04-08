@@ -17,6 +17,7 @@ import { ToastService } from './toast.service';
 import { AppComponent } from './app.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { AboutComponent } from './about/about.component';
 
 export const firebaseConfig = {
   apiKey: "AIzaSyD9M8PpjwCDUtbLh3qwE_RqJEScZeRet-I",
@@ -34,6 +35,7 @@ export const firebaseAuthConfig = {
 const appRoutes: Routes = [
   { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
   { path: 'dashboard', component: DashboardComponent },
+  { path: 'about', component: AboutComponent },
   { path: '**', component: PageNotFoundComponent }
 ];
 
@@ -55,7 +57,8 @@ export const company: string = '-Kfrps-nEI3ccNOS9eeI';
   declarations: [
     AppComponent,
     DashboardComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    AboutComponent
   ],
   providers: [ToastService],
   bootstrap: [AppComponent]
