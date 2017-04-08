@@ -5,9 +5,9 @@
     <div class="nav-left">
       <a class="nav-item">
         <span class="icon">
-          <i class="fa fa-times"></i>
+          <i class="fa fa-tint"></i>
         </span>
-        <span>Fit</span>
+        <span style="margin-left: 5px">xFit</span>
       </a>
     </div>
 
@@ -19,21 +19,26 @@
     </div>
 
     <div class="nav-right nav-menu">
-      <a class="nav-item">
-        Help
-      </a>
-      <a class="nav-item" (click)="login()" *ngIf="!(af.auth | async)?.auth.displayName">Sign in with Google</a>
+      <a class="nav-item" (click)="login()" *ngIf="!(af.auth | async)?.auth.displayName">
+        <span class="icon">
+          <i class="fa fa-google"></i>
+        </span>
+        Sign in
+        </a>
       <a class="nav-item" (click)="logout()" *ngIf="(af.auth | async)?.auth.displayName">
         <span class="icon">
           <i class="fa fa-user-circle"></i>
         </span>
         {{ (af.auth | async)?.auth.displayName || 'Sign in (Google)' }}
       </a>
-      
     </div>
   </nav>
 </section>
 
 <div class="container">
-  <router-outlet></router-outlet>
+  <div class="column is-10 is-offset-1">
+    <div class="">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
 </div>

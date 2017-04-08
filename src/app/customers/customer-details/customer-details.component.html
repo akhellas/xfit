@@ -1,4 +1,25 @@
-<div class="column is-half is-offset-one-quarter">
+<div class="box is-primary">
+
+  <div class="field is-grouped pull-right">
+    <div class="control">
+      <a class="button is-primary is-inverted" type="submit" (click)="save()">
+        <span class="icon is-medium">
+          <i class="fa fa-save"></i>
+        </span>
+      </a>
+    </div>
+    <div class="control">
+      <a class="button is-danger is-inverted" type="reset">
+        <span class="icon is-medium">
+          <i class="fa fa-times"></i>
+        </span>
+      </a>
+    </div>
+  </div>
+
+  <h1 class="title">Πελάτης: {{item.name}}</h1>
+  <h2 class="subtitle">Λεπτομέρειες πελάτη</h2>
+
   <div class="field">
     <label class="label">Όνομα</label>
     <p class="control">
@@ -17,8 +38,11 @@
       <input class="input" type="date" [(ngModel)]="item.birthday" placeholder="Text input">
     </p>
   </div>
-<h2 class="subtitle">Διεύθυνση Πελάτη (Προαιρετικά)</h2>
-<hr>
+</div>
+
+<div class="box">
+  <h2 class="subtitle">Διεύθυνση Πελάτη (Προαιρετικά)</h2>
+
   <div class="columns">
     <div class="column">
       <div class="field">
@@ -53,46 +77,8 @@
       </div>
     </div>
   </div>
-  <div class="field pull-right">
-    <div class="control">
-      <button type="reset" class="button is-default">Άκυρο</button>
-      <button (click)="save()" type="submit" class="button is-primary">Καταχώρηση</button>
-    </div>
-  </div>
 </div>
 
-
-
-<!--
-<form class="form-horizontal col-lg-6">
-  <fieldset>
-    <div class="form-group">
-      <label for="name" class="col-lg-2 control-label">Όνομα</label>
-      <div class="col-lg-10">
-        <input type="text" class="form-control" id="name" [(ngModel)]="item.name" placeholder="Name" name="name">
-      </div>
-    </div>
-    <div class="form-group">
-      <label for="surname" class="col-lg-2 control-label">Επίθετο</label>
-      <div class="col-lg-10">
-        <input type="text" class="form-control" id="surname" [(ngModel)]="item.surname" placeholder="surname" name="surname">
-      </div>
-    </div>
-    <div class="form-group">
-      <label for="birthday" class="col-lg-2 control-label">Ημ/νία Γέννησης</label>
-      <div class="col-lg-10">
-        <input type="text" class="form-control" id="birthday" [(ngModel)]="item.birthday" placeholder="birthday" name="birthday">
-      </div>
-    </div>
-    <div class="form-group">
-      <div class="col-lg-10 col-lg-offset-2">
-        <button type="reset" class="btn btn-default">Άκυρο</button>
-        <button (click)="save()" type="submit" class="btn btn-primary">Καταχώρηση</button>
-      </div>
-    </div>
-  </fieldset>
-</form>-->
-
-<div class="col-lg-offset-1 col-lg-5">
+<div class="box">
   <span>{{item | json}}</span>
 </div>
