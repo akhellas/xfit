@@ -12,7 +12,7 @@ import { Customer } from '../customer';
   styleUrls: ['./customer-details.component.css']
 })
 export class CustomerDetailsComponent implements OnInit {
-  item: Observable<any> = new Observable<any>();
+  item: Observable<Customer> = new Observable<Customer>();
 
   constructor(
     private route: ActivatedRoute,
@@ -28,5 +28,8 @@ export class CustomerDetailsComponent implements OnInit {
 
   save() {
     this.service.update(this.item);
+  }
+  cancel(){
+    this.router.navigateByUrl('/customers');
   }
 }

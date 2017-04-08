@@ -1,5 +1,69 @@
-<h2>Νέος Πελάτης</h2>
+<div class="column is-half is-offset-one-quarter">
+  <div class="field">
+    <label class="label">Όνομα</label>
+    <p class="control">
+      <input class="input" [(ngModel)]="item.name" type="text" placeholder="Text input">
+    </p>
+  </div>
+  <div class="field">
+    <label class="label">Επίθετο</label>
+    <p class="control">
+      <input class="input" [(ngModel)]="item.surname" type="text" placeholder="Text input">
+    </p>
+  </div>
+  <div class="field">
+    <label class="label">Ημ/νια Γέννησης</label>
+    <p class="control">
+      <input class="input" type="date" [(ngModel)]="item.birthday" placeholder="Text input">
+    </p>
+  </div>
+<h2 class="subtitle">Διεύθυνση Πελάτη (Προαιρετικά)</h2>
+<hr>
+  <div class="columns">
+    <div class="column">
+      <div class="field">
+        <label class="label">Περιοχή</label>
+        <p class="control">
+          <input class="input" type="text" placeholder="Περιοχή">
+        </p>
+      </div>
+    </div>
+    <div class="column">
+      <div class="field">
+        <label class="label">Διεύθυνση</label>
+        <p class="control">
+          <input class="input" type="text" placeholder="Διεύθυνση">
+        </p>
+      </div>
+    </div>
+    <div class="column">
+      <div class="field">
+        <label class="label">Αριθμός</label>
+        <p class="control">
+          <input class="input" type="number" placeholder="Αριθμός">
+        </p>
+      </div>
+    </div>
+    <div class="column">
+      <div class="field">
+        <label class="label">T. K.</label>
+        <p class="control">
+          <input class="input" type="number" placeholder="T.K">
+        </p>
+      </div>
+    </div>
+  </div>
+  <div class="field pull-right">
+    <div class="control">
+      <button type="reset" class="button is-default">Άκυρο</button>
+      <button (click)="save()" type="submit" class="button is-primary">Καταχώρηση</button>
+    </div>
+  </div>
+</div>
 
+
+
+<!--
 <form class="form-horizontal col-lg-6">
   <fieldset>
     <div class="form-group">
@@ -27,7 +91,7 @@
       </div>
     </div>
   </fieldset>
-</form>
+</form>-->
 
 <div class="col-lg-offset-1 col-lg-5">
   <span>{{item | json}}</span>

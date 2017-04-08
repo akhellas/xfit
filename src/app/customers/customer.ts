@@ -2,7 +2,7 @@ export class Customer {
     public name: string;
     public surname: string;
     public contactInfo: ContactInfo[];
-    public birthDay: Date;
+    public birthday: Date;
     public address: Address;
 }
 export class ContactInfo {
