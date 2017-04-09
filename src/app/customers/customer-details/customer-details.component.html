@@ -1,4 +1,4 @@
-<div class="box is-primary">
+<div class="box">
 
   <div class="field is-grouped pull-right">
     <div class="control">
@@ -17,7 +17,7 @@
     </div>
   </div>
 
-  <h1 class="title">Πελάτης: {{item.name}}</h1>
+  <h1 class="title">Πελάτης: {{item.name}} {{item.surname}}</h1>
   <h2 class="subtitle">Λεπτομέρειες πελάτη</h2>
 
   <div class="field">
@@ -39,46 +39,76 @@
     </p>
   </div>
 </div>
-
-<div class="box">
-  <h2 class="subtitle">Διεύθυνση Πελάτη (Προαιρετικά)</h2>
-
-  <div class="columns">
-    <div class="column">
-      <div class="field">
-        <label class="label">Περιοχή</label>
-        <p class="control">
-          <input class="input" type="text" placeholder="Περιοχή">
-        </p>
+<div class="columns">
+  <div class="column is-half">
+    <div class="box">
+      <h2 class="subtitle">Διεύθυνση Πελάτη (Προαιρετικά)</h2>
+      <div class="columns">
+        <div class="column  is-three-quarters">
+          <div class="field">
+            <label class="label">Διεύθυνση</label>
+            <p class="control">
+              <input class="input" type="text" [(ngModel)]="item.address.address" placeholder="Διεύθυνση">
+            </p>
+          </div>
+        </div>
+        <div class="column ">
+          <div class="field">
+            <label class="label">Αριθμός</label>
+            <p class="control">
+              <input class="input" type="number" [(ngModel)]="item.address.number" placeholder="Αριθμός">
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="columns">
+        <div class="column is-three-quarters">
+          <div class="field">
+            <label class="label">Περιοχή</label>
+            <p class="control">
+              <input class="input" type="text" [(ngModel)]="item.address.Region" placeholder="Περιοχή">
+            </p>
+          </div>
+        </div>
+        <div class="column">
+          <div class="field">
+            <label class="label">T. K.</label>
+            <p class="control">
+              <input class="input" type="number" [(ngModel)]="item.address.postalCode" placeholder="T.K">
+            </p>
+          </div>
+        </div>
       </div>
     </div>
-    <div class="column">
-      <div class="field">
-        <label class="label">Διεύθυνση</label>
-        <p class="control">
-          <input class="input" type="text" placeholder="Διεύθυνση">
-        </p>
-      </div>
-    </div>
-    <div class="column">
-      <div class="field">
-        <label class="label">Αριθμός</label>
-        <p class="control">
-          <input class="input" type="number" placeholder="Αριθμός">
-        </p>
-      </div>
-    </div>
-    <div class="column">
-      <div class="field">
-        <label class="label">T. K.</label>
-        <p class="control">
-          <input class="input" type="number" placeholder="T.K">
-        </p>
+  </div>
+  <div class="column is-half">
+    <div class="box">
+      <h2 class="subtitle">Επικοινωνία Πελάτη (Προαιρετικά)</h2>
+      <div class="columns">
+        <div class="column  is-half">
+          <div class="field">
+            <label class="label">Τύπος</label>
+            <p class="control">
+              <span class="select is-fullwidth">
+                 <select [(ngModel)]="item.contactInfo.description"> 
+                    <option *ngFor="let type of contactTypes" [ngValue]="type.Description">{{type.Description}}</option>
+                 </select>
+              </span>
+            </p>
+          </div>
+        </div>
+        <div class="column ">
+          <div class="field">
+            <label class="label">Αριθμός</label>
+            <p class="control">
+              <input class="input" type="text" [(ngModel)]="item.contactInfo.phone" placeholder="Αριθμός">
+            </p>
+          </div>
+        </div>
       </div>
     </div>
   </div>
 </div>
-
 <div class="box">
   <span>{{item | json}}</span>
 </div>

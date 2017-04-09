@@ -1,52 +1,61 @@
-<h2>Λεπτομέρειες Προϊόντος: {{item.name}}</h2>
+<div class="box">
+  <div class="field is-grouped pull-right">
+    <div class="control">
+      <a class="button is-primary is-inverted" type="submit" (click)="save()">
+        <span class="icon is-medium">
+          <i class="fa fa-save"></i>
+        </span>
+      </a>
+    </div>
+    <div class="control">
+      <a class="button is-danger is-inverted" type="reset">
+        <span class="icon is-medium">
+          <i class="fa fa-times"></i>
+        </span>
+      </a>
+    </div>
+  </div>
 
-<form class="form-horizontal col-lg-6">
-  <fieldset>
-    <div class="form-group">
-      <label for="name" class="col-lg-2 control-label">Όνομα</label>
-      <div class="col-lg-10">
-        <input type="text" class="form-control" id="name" [(ngModel)]="item.name" placeholder="Όνομα πακέτου" name="name">
-      </div>
+  <h1 class="title">Πακέτο: {{item.name}}</h1>
+  <h2 class="subtitle">Λεπτομέρειες πακέτου</h2>
+
+  <div class="column is-half">
+    <div class="field">
+      <label class="label">Περιγραφή</label>
+      <p class="control">
+        <input class="input" type="text" [(ngModel)]="item.name" placeholder="Όνομα πακέτου" name="name">
+      </p>
     </div>
-    <div class="form-group">
-      <label for="duration" class="col-lg-2 control-label">Διάρκεια</label>
-      <div class="col-lg-10">
-        <input type="number" class="form-control" id="duration" [(ngModel)]="item.duration" placeholder="Διάρκεια (μήνες ή αριθμός επισκέψεων)"
-          name="duration">
-      </div>
+    <div class="field">
+      <label class="label">Διάρκεια</label>
+      <p class="control">
+        <input class="input" type="text" [(ngModel)]="item.duration" placeholder="Διάρκεια (μήνες ή αριθμός επισκέψεων)" name="duration">
+      </p>
     </div>
-    <div class="form-group">
-      <label for="price" class="col-lg-2 control-label">Τιμή</label>
-      <div class="col-lg-10">
-        <input type="number" class="form-control" id="price" [(ngModel)]="item.price" placeholder="Τιμή" name="price">
-      </div>
+    <div class="field">
+      <label class="label">Τιμή</label>
+      <p class="control">
+        <input class="input" type="text" [(ngModel)]="item.price" placeholder="Τιμή" name="price">
+      </p>
     </div>
-    <div class="form-group">
-      <div class="col-lg-10 col-lg-offset-2">
-        <div class="checkbox">
-          <label>
-              <input type="checkbox" [(ngModel)]="item.isPerVisit" name="isPerVisit"> Πακέτο Επισκέψεων
-            </label>
-        </div>
-      </div>
+    <div class="field">
+      <p class="control">
+        <label class="checkbox">
+      <input type="checkbox" [(ngModel)]="item.isPerVisit" name="isPerVisit">
+     Πακέτο Επισκέψεων
+    </label>
+      </p>
     </div>
-    <div class="form-group">
-      <div class="col-lg-10 col-lg-offset-2">
-        <div class="checkbox">
-          <label>
-              <input type="checkbox" [(ngModel)]="item.isActive" name="isActive"> Ενεργό
-            </label>
-        </div>
-      </div>
+    <div class="field">
+      <p class="control">
+        <label class="checkbox">
+      <input type="checkbox" [(ngModel)]="item.isActive" name="isActive">
+    Ενεργό
+    </label>
+      </p>
     </div>
-    <div class="form-group">
-      <div class="col-lg-10 col-lg-offset-2">
-        <button type="reset" class="btn btn-default">Ακύρωση</button>
-        <button (click)="save()" type="submit" class="btn btn-primary">Αποθήκευση</button>
-      </div>
-    </div>
-  </fieldset>
-</form>
+  </div>
+</div>
 
 <div class="col-lg-offset-1 col-lg-5">
   <span>{{item | json}}</span>

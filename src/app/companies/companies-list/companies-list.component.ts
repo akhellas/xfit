@@ -20,11 +20,13 @@ export class CompaniesListComponent implements OnInit {
 
   ngOnInit() {
     this.items = this.service.items;
+    console.log(this.items);
   }
 
   onInsert() {
     let company = new Company();
     company.name = "Νέα Εταιρεία";
+     company.address = "Χωρίς Διεύθυνση"
     company.isActive = true;
 
     this.service.insert(company);

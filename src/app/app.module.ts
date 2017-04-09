@@ -9,10 +9,11 @@ import { AngularFireModule, AuthProviders, AuthMethods } from 'angularfire2';
 import { ToastModule } from 'ng2-toastr';
 
 import { CompaniesModule } from './companies/companies.module';
-import { CustomersModule } from './customers/customer.module'
-import { ProductModule } from './products/product.module'
+import { CustomersModule } from './customers/customer.module';
+import { ProductModule } from './products/product.module';
 
 import { ToastService } from './toast.service';
+import { UtilitesService } from './common/utilities.service';
 
 import { AppComponent } from './app.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
@@ -60,7 +61,7 @@ export const company: string = '-Kfrps-nEI3ccNOS9eeI';
     PageNotFoundComponent,
     AboutComponent
   ],
-  providers: [ToastService],
+  providers: [ToastService, UtilitesService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

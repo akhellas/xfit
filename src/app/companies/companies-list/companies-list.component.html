@@ -1,38 +1,21 @@
-<div class="container is-fluid">
-  <section class="hero is-info">
-    <div class="hero-body">
-      <div class="container">
-        <h1 class="title">
-          Εταιρίες
-        </h1>
-        <h2 class="subtitle">
-          Λίστα εταιριών - Διαχείριση
-        </h2>
-        <table class="table is-striped">
-          <thead>
-            <tr>
-              <th>Όνομα</th>
-              <th>Διεύθυνση</th>
-              <th>Ενεργό</th>
-              <th><button (click)="onInsert()" class="button is-primary" style="width: 100%">Νέο</button></th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr *ngFor="let item of items | async">
-              <td>{{item.name}}</td>
-              <td>{{item.address}}</td>
-              <td>{{item.isActive}}</td>
-              <td style="width: 187px">
-                <button (click)="onEdit(item)" class="button is-primary">Επεξ</button>
-                <button (click)="onDelete(item)" class="button is-danger">Διαγραφή</button>
-              </td>
-            </tr>
-          </tbody>
-          <tfoot>
-          </tfoot>
-        </table>
+<div class="top-items">
+  <button (click)="onInsert()" title="Προσθήκη Εταιρίας" class="button is-primary pull-right circle"><span class="icon is-small"><i class="fa fa-plus"></i></span></button>
+  <i class="fa fa-square inactive"></i> Ανενεργό Κατάστημα
+  <i class="fa fa-square active"></i> Ενεργό Κατάστημα
+</div>
+<div class="columns is-half-desktop">
+  <div class="column is-one-quarter" *ngFor="let item of items | async">
+    <div class="card is-primary">
+      <div class="card-content" style="color:white;" [ngStyle]="{'background-color':item.isActive ? '#3273dc' :'#ff3860' }">
+        <h1 class="title">{{item.name}}</h1>
+        <h2 class="subtitle">{{item.address}}</h2>
+        <!--To DO clients numbers-->
+        <p>Πελάτες: 4</p>
       </div>
+      <footer class="card-footer">
+        <a (click)="onEdit(item)" class="card-footer-item">Άνοιγμα</a>
+        <a (click)="onDelete(item)" class="card-footer-item">Διαγραφή</a>
+      </footer>
     </div>
-  </section>
-
+  </div>
 </div>

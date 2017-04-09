@@ -28,5 +28,6 @@ export class CompanyDetailsComponent implements OnInit {
 
   save() {
     this.service.update(this.item);
+    this.router.navigateByUrl('/companies');
   }
 }

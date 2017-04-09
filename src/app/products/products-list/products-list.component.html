@@ -1,4 +1,14 @@
 <div class="box">
+  <div class="field is-grouped pull-right">
+    <div class="control">
+      <a class="button is-primary is-inverted" (click)="onInsert()">
+        <span class="icon is-medium">
+          <i class="fa fa-plus-square"></i>
+        </span>
+      </a>
+    </div>
+  </div>
+
   <h1 class="title">Πακέτα</h1>
   <h2 class="subtitle">Διαχείριση πακέτων συνδρομής</h2>
 
@@ -9,9 +19,9 @@
         <th>Περιγραφή</th>
         <th>Διάρκεια</th>
         <th>Τιμή</th>
-        <th>Πακέτο Επισκέψεων</th>
+        <th>Είδος</th>
         <th>Ενεργό</th>
-        <th><button (click)="onInsert()" class="button is-primary" style="width: 100%">Νέο</button></th>
+        <th>Ενέργειες</th>
       </tr>
     </thead>
     <tbody>
@@ -20,11 +30,25 @@
         <td>{{item.name}}</td>
         <td>{{item.duration}}</td>
         <td>{{item.price}}</td>
-        <td><input type="checkbox" [ngModel]="item.isPerVisit"></td>
-        <td><input type="checkbox" [ngModel]="item.isActive"></td>
-        <td style="width: 205px">
-          <button (click)="onEdit(item)" class="button is-primary">Άνοιγμα</button>
-          <button (click)="onDelete(item)" class="button is-danger">Διαγραφή</button>
+        <td>{{item.isPerVisit ? 'Επισκέψεων' : 'Μηνιαίο'}}</td>
+        <td>{{item.isActive ? 'Ενεργό' : 'Ανενεργό' }}</td>
+        <td style="width:100px">
+          <div class="field is-grouped">
+            <div class="control">
+              <a class="button is-primary is-inverted" (click)="onEdit(item)">
+                <span class="icon">
+                  <i class="fa fa-pencil"></i>
+                </span>
+              </a>
+            </div>
+            <div class="control">
+              <a class="button is-danger is-inverted" type="reset" (click)="onDelete(item)">
+                <span class="icon is-medium">
+                  <i class="fa fa-times"></i>
+                </span>
+              </a>
+            </div>
+          </div>
         </td>
       </tr>
     </tbody>
