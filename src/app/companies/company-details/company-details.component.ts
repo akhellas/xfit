@@ -9,7 +9,7 @@ import { Company } from '../company';
 @Component({
   selector: 'app-company-details',
   templateUrl: './company-details.component.html',
-  styleUrls: ['./company-details.component.css']
+  styleUrls: ['./company-details.component.sass']
 })
 export class CompanyDetailsComponent implements OnInit {
   item: Observable<any> = new Observable<any>();

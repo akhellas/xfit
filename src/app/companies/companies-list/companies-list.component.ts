@@ -8,7 +8,7 @@ import { Company }  from '../company';
 @Component({
   selector: 'app-companies-list',
   templateUrl: './companies-list.component.html',
-  styleUrls: ['./companies-list.component.css']
+  styleUrls: ['./companies-list.component.sass']
 })
 export class CompaniesListComponent implements OnInit {
   items: Observable<any>;

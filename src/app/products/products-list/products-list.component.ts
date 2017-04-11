@@ -9,7 +9,7 @@ import { ProductsService } from '../products.service';
 @Component({
   selector: 'app-products-list',
   templateUrl: './products-list.component.html',
-  styleUrls: ['./products-list.component.css']
+  styleUrls: ['./products-list.component.sass']
 })
 export class ProductsListComponent implements OnInit {
   items: Observable<any>;

@@ -8,7 +8,7 @@ import { Customer, Address, ContactInfo } from '../customer';
 @Component({
   selector: 'app-customers-list',
   templateUrl: './customers-list.component.html',
-  styleUrls: ['./customers-list.component.css']
+  styleUrls: ['./customers-list.component.sass']
 })
 export class CustomersListComponent implements OnInit {
   items: Observable<any>;

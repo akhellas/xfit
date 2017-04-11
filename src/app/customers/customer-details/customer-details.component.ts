@@ -9,7 +9,8 @@ import { Customer, Address, ContactInfo, ContactTypes } from '../customer';
 
 @Component({
   selector: 'app-customer-details',
-  templateUrl: './customer-details.component.html'
+  templateUrl: './customer-details.component.html',
+  styleUrls: ['./customer-details.component.sass']
 })
 export class CustomerDetailsComponent implements OnInit {
   item: Customer = new Customer();
