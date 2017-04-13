@@ -23,15 +23,11 @@ export class CustomersListComponent implements OnInit {
   }
 
   onInsert() {
-    let customer = new Customer();
-    customer.name = 'Νέος';
-    customer.surname = 'Πελάτης'
-
-    this.service.insert(customer);
+    this.router.navigate(['customers/new']);
   }
 
   onEdit(item: any) {
-    this.router.navigate(['customers', item.$key]);
+    this.router.navigate(['customers/edit', item.$key]);
   }
 
   onDelete(item: any) {

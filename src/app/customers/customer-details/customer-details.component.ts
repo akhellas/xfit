@@ -13,8 +13,9 @@ import { Customer, Address, ContactInfo, ContactTypes } from '../customer';
   styleUrls: ['./customer-details.component.sass']
 })
 export class CustomerDetailsComponent implements OnInit {
-  item: Observable<Customer> = new Observable<Customer>();
+  item: any = new Customer();
   contactTypes: any[];
+  paramsID: any;
   constructor(
     private route: ActivatedRoute,
     private router: Router,
@@ -23,16 +24,23 @@ export class CustomerDetailsComponent implements OnInit {
 
   ngOnInit() {
     this.contactTypes = UtilitesService.convertNamesAndValues(ContactTypes);
-    this.route.params
-      .switchMap((params: Params) => this.service.item(params['id']))
-      .subscribe((item) => {
+
+    this.route.params.subscribe((params) => {
+      this.paramsID = params["id"];
+      if (this.paramsID == undefined || !this.paramsID) {
+
+        return;
+      }
+      this.service.item(this.paramsID).subscribe((item) => {
         this.item = item;
-        console.log('customer: ', this.item);
       });
+    });
   }
 
+
+
   save() {
-    this.service.update(this.item);
+    this.paramsID ? this.service.update(this.item) : this.service.insert(this.item);
   }
   cancel() {
     this.router.navigateByUrl('/customers');

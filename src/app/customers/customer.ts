@@ -3,15 +3,20 @@ export class Customer {
     public surname: string;
     public contactInfo: ContactInfo;
     public birthday: Date;
-    public address: Address;
+    public residenceInfo: Address;
     constructor() {
+        this.residenceInfo = new Address();
+        this.residenceInfo.address = "Διεύθυνση"
         this.contactInfo = new ContactInfo();
-        this.address = new Address();
+        this.contactInfo.description = ContactTypes.Κινητό;
     }
 }
 export class ContactInfo {
-    public description: string;
+    public description: ContactTypes;
     public phone: string;
+    constructor() {
+        this.phone = "Εισάγετε Αριθμό";
+    }
 }
 
 export class Address {

@@ -9,19 +9,20 @@ import { CustomerDetailsComponent } from './customer-details/customer-details.co
 
 const customersRoutes: Routes = [
   { path: 'customers', component: CustomersListComponent },
-  { path: 'customers/:id', component: CustomerDetailsComponent }
+  { path: 'customers/new', component: CustomerDetailsComponent },
+  { path: 'customers/edit/:id', component: CustomerDetailsComponent }
 ];
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
-    RouterModule.forChild(customersRoutes) 
+    RouterModule.forChild(customersRoutes)
   ],
   declarations: [
-    CustomersListComponent, 
+    CustomersListComponent,
     CustomerDetailsComponent
   ],
-  providers: [ CustomersService ]
+  providers: [CustomersService]
 })
 export class CustomersModule { }

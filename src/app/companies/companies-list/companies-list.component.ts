@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 import { Observable } from 'rxjs/Observable';
 
 import { CompaniesService } from '../companies.service';
-import { Company }  from '../company';
+import { Company } from '../company';
 
 @Component({
   selector: 'app-companies-list',
@@ -12,6 +12,7 @@ import { Company }  from '../company';
 })
 export class CompaniesListComponent implements OnInit {
   items: Observable<any>;
+ 
 
   constructor(
     private router: Router,
@@ -20,13 +21,13 @@ export class CompaniesListComponent implements OnInit {
 
   ngOnInit() {
     this.items = this.service.items;
-    console.log(this.items);
+  
   }
 
   onInsert() {
     let company = new Company();
     company.name = "Νέα Εταιρεία";
-     company.address = "Χωρίς Διεύθυνση"
+    company.address = "Χωρίς Διεύθυνση"
     company.isActive = true;
 
     this.service.insert(company);
@@ -35,7 +36,7 @@ export class CompaniesListComponent implements OnInit {
   onEdit(item: any) {
     this.router.navigate(['companies', item.$key]);
   }
-  
+
   onDelete(item: any) {
     this.service.remove(item);
   }
