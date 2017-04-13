@@ -12,7 +12,7 @@ import { Company } from '../company';
   styleUrls: ['./company-details.component.sass']
 })
 export class CompanyDetailsComponent implements OnInit {
-  item: Observable<any> = new Observable<any>();
+  item: Observable<Company> = new Observable<Company>();
 
   constructor(
     private route: ActivatedRoute,
@@ -23,7 +23,7 @@ export class CompanyDetailsComponent implements OnInit {
   ngOnInit() {
     this.route.params
               .switchMap((params: Params) => this.service.item(params['id']))
-              .subscribe((item: any) => this.item = item);
+              .subscribe((item) => this.item = item);
   }
 
   save() {

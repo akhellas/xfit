@@ -13,7 +13,7 @@ import { Customer, Address, ContactInfo, ContactTypes } from '../customer';
   styleUrls: ['./customer-details.component.sass']
 })
 export class CustomerDetailsComponent implements OnInit {
-  item: Customer = new Customer();
+  item: Observable<Customer> = new Observable<Customer>();
   contactTypes: any[];
   constructor(
     private route: ActivatedRoute,
@@ -25,11 +25,10 @@ export class CustomerDetailsComponent implements OnInit {
     this.contactTypes = UtilitesService.convertNamesAndValues(ContactTypes);
     this.route.params
       .switchMap((params: Params) => this.service.item(params['id']))
-      .subscribe((item: any) => this.item = item);
-    if (this.item.address == undefined)
-      this.item.address = new Address();
-    if (this.item.contactInfo == undefined)
-      this.item.contactInfo = new ContactInfo();
+      .subscribe((item) => {
+        this.item = item;
+        console.log('customer: ', this.item);
+      });
   }
 
   save() {

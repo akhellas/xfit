@@ -4,7 +4,7 @@ export class Customer {
     public contactInfo: ContactInfo;
     public birthday: Date;
     public address: Address;
-    customer() {
+    constructor() {
         this.contactInfo = new ContactInfo();
         this.address = new Address();
     }
