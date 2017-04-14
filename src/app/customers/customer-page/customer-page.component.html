@@ -1,0 +1,38 @@
+<div class="container is-fluid">
+  <div class="tile is-anscestor">
+    <div class="tile is-3" *ngIf="isNew"></div>
+    <div class="tile is-parent" [ngClass]="{'is-6':isNew, 'is-offset-3':isNew, 'is-3':!isNew}">
+      <app-customer-details style="width:100%" [isNew]="isNew"></app-customer-details>
+    </div>
+    <div class="tile is-parent" *ngIf="!isNew">
+      <app-customer-activity style="width:100%"></app-customer-activity>
+    </div>
+  </div>
+  <!--<div class="field is-grouped pull-right">
+          <div class="control">
+            <a class="button is-primary is-inverted" (click)="cancel()">
+              <span class="icon">
+          <i class="fa fa-arrow-left"></i>
+        </span>
+              <span> Πίσω</span>
+            </a>
+          </div>
+          <div class="control">
+            <a class="button is-danger is-inverted" (click)="delete()" type="reset">
+              <span class="icon">
+          <i class="fa fa-times"></i>
+        </span>
+              <span> Διαγραφή</span>
+            </a>
+          </div>
+          <div class="control">
+            <a class="button is-success is-inverted" (click)="save()">
+              <span class="icon">
+          <i class="fa fa-save"></i>
+        </span>
+              <span> Αποθήκευση</span>
+            </a>
+          </div>
+        </div>-->
+
+</div>

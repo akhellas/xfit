@@ -1,25 +1,27 @@
-<nav class="level">
-  <div>
-    <i class="fa fa-square inactive"></i> Ανενεργό Κατάστημα
-    <i class="fa fa-square active"></i> Ενεργό Κατάστημα
-  </div>
-    <div class="level-right">
-       <button (click)="onInsert()" title="Προσθήκη Εταιρίας" class="button is-primary"><span class="icon is-small"><i class="fa fa-plus"></i></span></button>
+<div class="container">
+  <nav class="level">
+    <div>
+      <i class="fa fa-square inactive"></i> Ανενεργό Κατάστημα
+      <i class="fa fa-square active"></i> Ενεργό Κατάστημα
     </div>
-</nav>
-<div class="columns is-multiline is-half-desktop">
-  <div class="column is-one-quarter" *ngFor="let item of items | async">
-    <div class="card is-primary">
-      <div class="card-content" style="color:white;" [ngStyle]="{'background-color':item.isActive ? '#3273dc' :'#ff3860' }">
-        <h1 class="title">{{item.name}}</h1>
-        <h2 class="subtitle">{{item.address}}</h2>
-        <!--To DO clients numbers-->
-        <p>Πελάτες: {{item.customers}}</p>
+    <div class="level-right">
+      <button (click)="onInsert()" title="Προσθήκη Εταιρίας" class="button is-primary"><span class="icon is-small"><i class="fa fa-plus"></i></span></button>
+    </div>
+  </nav>
+  <div class="columns is-multiline is-half-desktop">
+    <div class="column is-one-quarter" *ngFor="let item of items | async">
+      <div class="card is-primary">
+        <div class="card-content" style="color:white;" [ngStyle]="{'background-color':item.isActive ? '#3273dc' :'#ff3860' }">
+          <h1 class="title">{{item.name}}</h1>
+          <h2 class="subtitle">{{item.address}}</h2>
+          <!--To DO clients numbers-->
+          <p>Πελάτες: {{item.customers}}</p>
+        </div>
+        <footer class="card-footer">
+          <a (click)="onEdit(item)" class="card-footer-item">Άνοιγμα</a>
+          <a (click)="onDelete(item)" class="card-footer-item">Διαγραφή</a>
+        </footer>
       </div>
-      <footer class="card-footer">
-        <a (click)="onEdit(item)" class="card-footer-item">Άνοιγμα</a>
-        <a (click)="onDelete(item)" class="card-footer-item">Διαγραφή</a>
-      </footer>
     </div>
   </div>
 </div>

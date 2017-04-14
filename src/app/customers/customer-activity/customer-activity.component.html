@@ -1,0 +1,77 @@
+<nav class="panel">
+  <p class="panel-heading">
+    <a class="button is-white" (click)="showAdd = !showAdd">
+      <span class="icon is-small">
+      <i class="fa fa-plus"></i>
+    </span>
+      <span>Νέα Συνδρομή</span>
+    </a>
+    <a class="button is-white">
+      <span class="icon is-small">
+      <i class="fa fa-money"></i>
+    </span>
+      <span>Νέα Πληρωμή</span>
+    </a>
+    <a class="button is-white">
+      <span class="icon is-small">
+      <i class="fa fa-shopping-basket"></i>
+    </span>
+      <span>Νέα Αγορά</span>
+    </a>
+    <a (click)="cancel()" class="button is-primary is-inverted is-pulled-right">
+      <span class="icon is-small">
+      <i class="fa fa-list"></i>
+    </span>
+      <span>Έξοδος</span>
+    </a>
+  </p>
+  <div class="panel-top-block" [ngClass]="{'panel-item': !showAdd}">
+    TODO fill content
+  </div>
+  <p class="panel-tabs">
+    <a class="is-active">All</a>
+    <a>Public</a>
+    <a>Private</a>
+    <a>Sources</a>
+    <a>Forks</a>
+  </p>
+  <a class="panel-block is-active">
+    <span class="panel-icon">
+      <i class="fa fa-book"></i>
+    </span> bulma
+  </a>
+  <a class="panel-block">
+    <span class="panel-icon">
+      <i class="fa fa-book"></i>
+    </span> marksheet
+  </a>
+  <a class="panel-block">
+    <span class="panel-icon">
+      <i class="fa fa-book"></i>
+    </span> minireset.css
+  </a>
+  <a class="panel-block">
+    <span class="panel-icon">
+      <i class="fa fa-book"></i>
+    </span> jgthms.github.io
+  </a>
+  <a class="panel-block">
+    <span class="panel-icon">
+      <i class="fa fa-code-fork"></i>
+    </span> daniellowtw/infBoard
+  </a>
+  <a class="panel-block">
+    <span class="panel-icon">
+      <i class="fa fa-code-fork"></i>
+    </span> mojs
+  </a>
+  <label class="panel-block">
+    <input type="checkbox">
+    Remember me
+  </label>
+  <div class="panel-block">
+    <button class="button is-primary is-outlined is-fullwidth">
+      Reset all filters
+    </button>
+  </div>
+</nav>

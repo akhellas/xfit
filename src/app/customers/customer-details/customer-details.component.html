@@ -1,54 +1,54 @@
-<div class="box">
+<div class="tile is-ancestor">
+  <div class="tile is-vertical is-parent">
+    <div class="tile is-child box">
+      <nav class="level">
+        <div class="level-left">
+          <h5 class="title is-5">Πελάτης: {{customer.name}} {{customer.surname}}</h5>
+        </div>
+        <div class="field level-right">
+          <a class="button is-small" *ngIf="!isEdit && !isNew" (click)="editMode(0)"><span class="icon is-small"><i class="fa fa-pencil"></i></span></a>
+        </div>
+      </nav>
 
-  <div class="field is-grouped pull-right">
-    <div class="control">
-      <a class="button is-primary is-inverted" type="submit" (click)="save()">
-        <span class="icon is-medium">
-          <i class="fa fa-save"></i>
-        </span>
-      </a>
+      <hr class="is-marginless">
+      <div class="field">
+        <label class="label">Όνομα</label>
+        <p class="control">
+          <input class="input" [disabled]="edit != 0 && !isNew" [(ngModel)]="customer.name" type="text" placeholder="Εισάγετε όνομα">
+        </p>
+      </div>
+      <div class="field">
+        <label class="label">Επίθετο</label>
+        <p class="control">
+          <input class="input" [disabled]="edit != 0 && !isNew" [(ngModel)]="customer.surname" type="text" placeholder="Εισάγετε επίθετο">
+        </p>
+      </div>
+      <div class="field">
+        <label class="label">Ημ/νια Γέννησης</label>
+        <p class="control">
+          <input class="input" [disabled]="edit != 0 && !isNew" type="date" [(ngModel)]="customer.birthday" placeholder="Εισάγετε Ημ/νια">
+        </p>
+      </div>
+      <div class="block pull-right" *ngIf="edit == 0 && !isNew">
+        <a class="button" (click)="cancelEditMode()">Άκυρο</a>
+        <a class="button is-success" (click)="save()">Αποθήκευση</a>
+      </div>
     </div>
-    <div class="control">
-      <a class="button is-danger is-inverted" (click)="cancel()" type="reset">
-        <span class="icon is-medium">
-          <i class="fa fa-times"></i>
-        </span>
-      </a>
-    </div>
-  </div>
-
-  <h1 class="title">Πελάτης: {{item.name}} {{item.surname}}</h1>
-  <h2 class="subtitle">Λεπτομέρειες πελάτη</h2>
-
-  <div class="field">
-    <label class="label">Όνομα</label>
-    <p class="control">
-      <input class="input" [(ngModel)]="item.name" type="text" placeholder="Text input">
-    </p>
-  </div>
-  <div class="field">
-    <label class="label">Επίθετο</label>
-    <p class="control">
-      <input class="input" [(ngModel)]="item.surname" type="text" placeholder="Text input">
-    </p>
-  </div>
-  <div class="field">
-    <label class="label">Ημ/νια Γέννησης</label>
-    <p class="control">
-      <input class="input" type="date" [(ngModel)]="item.birthday" placeholder="Text input">
-    </p>
-  </div>
-</div>
-<div class="columns">
-  <div class="column is-half">
-    <div class="box">
-      <h2 class="subtitle">Διεύθυνση Πελάτη (Προαιρετικά)</h2>
+    <div class="tile is-child box">
+      <nav class="level">
+        <div class="level-left">
+          <h5 class="title is-5">Διεύθυνση Πελάτη (Προαιρετικά)</h5>
+        </div>
+        <div class="field level-right">
+          <a class="button is-small" *ngIf="!isEdit && !isNew" (click)="editMode(1)"><span class="icon is-small"><i class="fa fa-pencil"></i></span></a>
+        </div>
+      </nav>
       <div class="columns">
-        <div class="column  is-three-quarters">
+        <div class="column  is-two-thirds">
           <div class="field">
             <label class="label">Διεύθυνση</label>
             <p class="control">
-              <input class="input" type="text" [(ngModel)]="item.residenceInfo.address" placeholder="Διεύθυνση">
+              <input class="input " type="text" [disabled]="edit != 1 && !isNew" [(ngModel)]="customer.residenceInfo.address" placeholder="Διεύθυνση">
             </p>
           </div>
         </div>
@@ -56,17 +56,17 @@
           <div class="field">
             <label class="label">Αριθμός</label>
             <p class="control">
-              <input class="input" type="text" [(ngModel)]="item.residenceInfo.number" placeholder="Αριθμός">
+              <input class="input " type="text" [disabled]="edit != 1 && !isNew" [(ngModel)]="customer.residenceInfo.number" placeholder="Αριθμός">
             </p>
           </div>
         </div>
       </div>
       <div class="columns">
-        <div class="column is-three-quarters">
+        <div class="column is-two-thirds">
           <div class="field">
             <label class="label">Περιοχή</label>
             <p class="control">
-              <input class="input" type="text" [(ngModel)]="item.residenceInfo.Region" placeholder="Περιοχή">
+              <input class="input " type="text" [disabled]="edit != 1 && !isNew" [(ngModel)]="customer.residenceInfo.Region" placeholder="Περιοχή">
             </p>
           </div>
         </div>
@@ -74,23 +74,32 @@
           <div class="field">
             <label class="label">T. K.</label>
             <p class="control">
-              <input class="input" type="number" [(ngModel)]="item.residenceInfo.postalCode" placeholder="T.K">
+              <input class="input " type="number" [disabled]="edit != 1 && !isNew" [(ngModel)]="customer.residenceInfo.postalCode" placeholder="T.K">
             </p>
           </div>
         </div>
       </div>
+      <div class="block pull-right" *ngIf="edit == 1 && !isNew">
+        <a class="button" (click)="cancelEditMode()">Άκυρο</a>
+        <a class="button is-success" (click)="save()">Αποθήκευση</a>
+      </div>
     </div>
-  </div>
-  <div class="column is-half">
-    <div class="box">
-      <h2 class="subtitle">Επικοινωνία Πελάτη (Προαιρετικά)</h2>
+    <div class="tile is-child box">
+      <nav class="level">
+        <div class="level-left">
+          <h5 class="title is-5">Επικοινωνία Πελάτη (Προαιρετικά)</h5>
+        </div>
+        <div class="field level-right">
+          <a class="button is-small" *ngIf="!isEdit && !isNew" (click)="editMode(2)"><span class="icon is-small"><i class="fa fa-pencil"></i></span></a>
+        </div>
+      </nav>
       <div class="columns">
         <div class="column  is-half">
           <div class="field">
             <label class="label">Τύπος</label>
             <p class="control">
-              <span class="select is-fullwidth">
-                 <select [(ngModel)]="item.contactInfo.description"> 
+              <span class="select is-fullwidth ">
+                 <select [(ngModel)]="customer.contactInfo.description" [disabled]="edit != 2 && !isNew"> 
                     <option *ngFor="let type of contactTypes" [ngValue]="type.Description">{{type.Description}}</option>
                  </select>
               </span>
@@ -101,14 +110,15 @@
           <div class="field">
             <label class="label">Αριθμός</label>
             <p class="control">
-              <input class="input" type="text" [(ngModel)]="item.phone" placeholder="Αριθμός">
+              <input class="input " type="text" [disabled]="edit != 2 && !isNew" [(ngModel)]="customer.contactInfo.phone" placeholder="Αριθμός">
             </p>
           </div>
         </div>
       </div>
+      <div class="block pull-right" *ngIf="edit == 2 || isNew">
+        <a class="button" (click)="cancelEditMode()">Άκυρο</a>
+        <a class="button is-success" (click)="save()">Αποθήκευση</a>
+      </div>
     </div>
   </div>
-</div>
-<div class="box">
-  <span>{{item | json}}</span>
 </div>

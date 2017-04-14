@@ -6,7 +6,6 @@ export class Customer {
     public residenceInfo: Address;
     constructor() {
         this.residenceInfo = new Address();
-        this.residenceInfo.address = "Διεύθυνση"
         this.contactInfo = new ContactInfo();
         this.contactInfo.description = ContactTypes.Κινητό;
     }
@@ -15,7 +14,7 @@ export class ContactInfo {
     public description: ContactTypes;
     public phone: string;
     constructor() {
-        this.phone = "Εισάγετε Αριθμό";
+       
     }
 }
 

@@ -22,12 +22,16 @@ export class CompanyDetailsComponent implements OnInit {
 
   ngOnInit() {
     this.route.params
-              .switchMap((params: Params) => this.service.item(params['id']))
-              .subscribe((item) => this.item = item);
+      .switchMap((params: Params) => this.service.item(params['id']))
+      .subscribe((item) => this.item = item);
   }
 
   save() {
     this.service.update(this.item);
+    this.router.navigateByUrl('/companies');
+  }
+  delete() {
+    this.service.remove(this.item);
     this.router.navigateByUrl('/companies');
   }
 }

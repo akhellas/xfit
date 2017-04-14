@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 import { Observable } from 'rxjs/Observable';
 import { UtilitesService } from '../../common/utilities.service';
@@ -13,9 +13,13 @@ import { Customer, Address, ContactInfo, ContactTypes } from '../customer';
   styleUrls: ['./customer-details.component.sass']
 })
 export class CustomerDetailsComponent implements OnInit {
-  item: any = new Customer();
+  customer: any = new Customer();
+  temp: Customer = new Customer();
   contactTypes: any[];
-  paramsID: any;
+  @Input() isNew: boolean;
+  isEdit: boolean = false;
+  edit: number = -1;
+
   constructor(
     private route: ActivatedRoute,
     private router: Router,
@@ -24,24 +28,42 @@ export class CustomerDetailsComponent implements OnInit {
 
   ngOnInit() {
     this.contactTypes = UtilitesService.convertNamesAndValues(ContactTypes);
-
-    this.route.params.subscribe((params) => {
-      this.paramsID = params["id"];
-      if (this.paramsID == undefined || !this.paramsID) {
-
-        return;
-      }
-      this.service.item(this.paramsID).subscribe((item) => {
-        this.item = item;
+    if (!this.isNew) {
+      this.route.params.subscribe(params => {
+        this.service.item(params["id"]).subscribe(item => {
+          this.customer = item;
+        });
       });
-    });
+    }
   }
 
+  editMode(edit) {
+    this.edit = edit;
+    this.isEdit = true;
+    this.temp = Object.assign(new Customer(), this.customer)
+  }
 
+  cancelEditMode() {
+    if (this.isNew) {
+      this.router.navigateByUrl('/customers');
+      return;
+    }
+    this.edit = -1;
+    this.isEdit = false;
+    this.customer = this.temp;
+  }
 
   save() {
-    this.paramsID ? this.service.update(this.item) : this.service.insert(this.item);
+    if (this.isNew) {
+      this.service.insert(this.customer)
+      this.router.navigateByUrl('/customers');
+      return;
+    }
+    this.service.update(this.customer);
+    this.isEdit = false;
+    this.edit = -1;
   }
+
   cancel() {
     this.router.navigateByUrl('/customers');
   }
