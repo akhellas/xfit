@@ -5,25 +5,22 @@ import { RouterModule, Routes } from '@angular/router';
 import { PackagesService } from './packages.service';
 import { PackageDetailsComponent } from './package-details/package-details.component';
 
+const packagesRoutes: Routes = [
+  { path: 'packages', component: PackageDetailsComponent }
 
-
-
-// const packagesRoutes: Routes = [
-//   { path: 'packages', component: PackageDetailsComponent }
-
-// ];
-
+];
 
 @NgModule({
   imports: [
     CommonModule,
-    // RouterModule.forChild(packagesRoutes)
+    RouterModule.forChild(packagesRoutes)
   ],
   declarations: [
     PackageDetailsComponent
-
   ],
-  providers: [PackagesService],
-  exports: [PackageDetailsComponent]
+  exports: [
+    PackageDetailsComponent
+  ],
+  providers: [PackagesService]
 })
-export class PackageModule { }
+export class PackagesModule { }

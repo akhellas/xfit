@@ -24,4 +24,4 @@ const productsRoutes: Routes = [
   ],
   providers: [ProductsService]
 })
-export class ProductModule { }
+export class ProductsModule { }
