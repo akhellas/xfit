@@ -26,52 +26,32 @@
     </a>
   </p>
   <div class="panel-top-block" [ngClass]="{'panel-item': !showAdd}">
-    TODO fill content
+    <package-details></package-details>
   </div>
   <p class="panel-tabs">
-    <a class="is-active">All</a>
-    <a>Public</a>
-    <a>Private</a>
-    <a>Sources</a>
-    <a>Forks</a>
+    <a (click)="paneltab = 0" [ngClass]="{'is-active': paneltab == 0}">Συνδρομές</a>
+    <a (click)="paneltab = 1" [ngClass]="{'is-active': paneltab == 1}">Αποδείξεις</a>
+    <a (click)="paneltab = 2" [ngClass]="{'is-active': paneltab == 2}">Συμμετοχές</a>
+    <a (click)="paneltab = 3" [ngClass]="{'is-active': paneltab == 3}">Καλάθι Αγορών</a>
   </p>
-  <a class="panel-block is-active">
+  <a class="panel-block" *ngIf="paneltab == 0">
     <span class="panel-icon">
       <i class="fa fa-book"></i>
-    </span> bulma
+    </span> bulma asdadsad <br> asdadsadsad
   </a>
-  <a class="panel-block">
+  <a class="panel-block" *ngIf="paneltab == 1">
     <span class="panel-icon">
       <i class="fa fa-book"></i>
-    </span> marksheet
+    </span> 32324 <br> asdadsadsad
   </a>
-  <a class="panel-block">
+  <a class="panel-block" *ngIf="paneltab == 2">
     <span class="panel-icon">
       <i class="fa fa-book"></i>
-    </span> minireset.css
+    </span> 234242 <br> a234242424234 23dfa sdfc324
   </a>
-  <a class="panel-block">
+  <a class="panel-block" *ngIf="paneltab == 3">
     <span class="panel-icon">
       <i class="fa fa-book"></i>
-    </span> jgthms.github.io
+    </span>sdsfasfsafsdfsdafsdfds<br> asdasdafasf a#@$@!$#@$@%#%#$%@#^#$
   </a>
-  <a class="panel-block">
-    <span class="panel-icon">
-      <i class="fa fa-code-fork"></i>
-    </span> daniellowtw/infBoard
-  </a>
-  <a class="panel-block">
-    <span class="panel-icon">
-      <i class="fa fa-code-fork"></i>
-    </span> mojs
-  </a>
-  <label class="panel-block">
-    <input type="checkbox">
-    Remember me
-  </label>
-  <div class="panel-block">
-    <button class="button is-primary is-outlined is-fullwidth">
-      Reset all filters
-    </button>
-  </div>
 </nav>

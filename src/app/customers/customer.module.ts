@@ -24,8 +24,8 @@ const customersRoutes: Routes = [
   declarations: [
     CustomersListComponent,
     CustomerDetailsComponent,
-    CustomerPageComponent,
-    CustomerActivityComponent
+    CustomerPageComponent
+  
   ],
   providers: [CustomersService]
 })

@@ -11,6 +11,8 @@ import { ToastModule } from 'ng2-toastr';
 import { CompaniesModule } from './companies/companies.module';
 import { CustomersModule } from './customers/customer.module';
 import { ProductModule } from './products/product.module';
+import { PackageModule } from './packages/package.module';
+
 
 import { ToastService } from './toast.service';
 import { UtilitesService } from './common/utilities.service';
@@ -49,9 +51,11 @@ export const company: string = '-Kfrps-nEI3ccNOS9eeI';
     BrowserAnimationsModule,
     FormsModule,
     HttpModule,
+    PackageModule,
     CompaniesModule,
     CustomersModule,
     ProductModule,
+    
     AngularFireModule.initializeApp(firebaseConfig, firebaseAuthConfig),
     RouterModule.forRoot(appRoutes),
     ToastModule.forRoot()
@@ -61,6 +65,7 @@ export const company: string = '-Kfrps-nEI3ccNOS9eeI';
     DashboardComponent,
     PageNotFoundComponent,
     AboutComponent
+
   ],
   providers: [ToastService, UtilitesService],
   bootstrap: [AppComponent]

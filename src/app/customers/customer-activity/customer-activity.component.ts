@@ -8,6 +8,8 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class CustomerActivityComponent implements OnInit {
   showAdd: boolean = true;
+  paneltab: number = 0;
+  
   constructor(private router: Router) { }
 
   ngOnInit() {
