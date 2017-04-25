@@ -13,7 +13,6 @@ export class ApiService {
     private url: string
   ) {
     this.items = af.database.list(this.url);
-   
     
   }
 
