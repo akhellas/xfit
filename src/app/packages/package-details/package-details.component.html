@@ -6,10 +6,8 @@
     <div class="field is-narrow">
       <div class="control">
         <div class="select">
-          <select>
-            <option>Business development</option>
-            <option>Marketing</option>
-            <option>Sales</option>
+          <select [(ngModel)]="product">
+            <option *ngFor="let prod of products | async" [ngValue]="prod" >{{prod.name}}</option>
           </select>
         </div>
       </div>
@@ -24,5 +22,19 @@
     <div class="field is-narrow">
       <input class="input" type="date" placeholder="Name">
     </div>
+  </div>
+</div>
+<div class="field is-horizontal">
+  <div class="field is-grouped is-pulled-right">
+    <p class="control">
+      <a class="button">
+      Άκυρο
+    </a>
+    </p>
+    <p class="control" (click)="createPackage()">
+      <a class="button is-primary">
+     Εισαγωγή
+    </a>
+    </p>
   </div>
 </div>
