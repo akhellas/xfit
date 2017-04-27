@@ -7,14 +7,17 @@ import { ActivatedRoute, Router } from '@angular/router';
   styleUrls: ['./customer-activity.component.sass']
 })
 export class CustomerActivityComponent implements OnInit {
-  showAdd: boolean = true;
+  showNewSub: boolean = true;
   paneltab: number = 0;
-  
+
   constructor(private router: Router) { }
 
   ngOnInit() {
   }
 
+  onInsert() {
+    this.showNewSub = true;
+  }
   cancel() {
     this.router.navigateByUrl('/customers');
   }

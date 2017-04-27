@@ -4,6 +4,6 @@ export class Package {
     public ProductPrice: number;
     public ProductIsPerVisit: boolean;
     public ProductDuration: number;
-    public Starts: Date;
-    public Ends: Date;
+    public Starts: string;
+    public Ends: string;
 }

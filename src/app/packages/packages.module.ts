@@ -7,10 +7,9 @@ import { FormsModule } from '@angular/forms';
 
 import { PackagesService } from './packages.service';
 import { PackageDetailsComponent } from './package-details/package-details.component';
+import { PackagesListComponent } from './packages-list/packages-list.component';
 
 const packagesRoutes: Routes = [
- 
-
 ];
 
 @NgModule({
@@ -20,10 +19,12 @@ const packagesRoutes: Routes = [
     RouterModule.forChild(packagesRoutes)
   ],
   declarations: [
-    PackageDetailsComponent
+    PackageDetailsComponent,
+    PackagesListComponent
   ],
   exports: [
-    PackageDetailsComponent
+    PackageDetailsComponent,
+    PackagesListComponent
   ],
   providers: [PackagesService]
 })

@@ -1,0 +1,26 @@
+<table class="table is-striped">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Ημ/νια Έναρξης</th>
+      <th>Ημ/νια Λήξης</th>
+      <th>Περιγραφή</th>
+      <th>Κόστος</th>
+      <th>Διάρκεια</th>
+      <th>Σημειώσεις</th>
+      <th>Ενέργεις</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let item of items | async; let index = index">
+      <td>{{index + 1}}</td>
+      <td>{{item.Starts}}</td>
+      <td>{{item.Ends}}</td>
+      <td>{{item.ProductName}}</td>
+      <td>{{item.ProductPrice}}</td>
+      <td>{{item.ProductDuration}}</td>
+      <td></td>
+      <td></td>
+    </tr>
+  </tbody>
+</table>

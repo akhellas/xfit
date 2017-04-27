@@ -6,7 +6,7 @@
     <div class="field is-narrow">
       <div class="control">
         <div class="select">
-          <select [(ngModel)]="product">
+          <select [(ngModel)]="product" (change)="onChange()">
             <option *ngFor="let prod of products | async" [ngValue]="prod" >{{prod.name}}</option>
           </select>
         </div>
@@ -20,7 +20,7 @@
   </div>
   <div class="field-body">
     <div class="field is-narrow">
-      <input class="input" type="date" placeholder="Name">
+      <input class="input" type="date" [(ngModel)]="package.Starts" (change)="onChange()">
     </div>
   </div>
 </div>
@@ -31,7 +31,7 @@
       Άκυρο
     </a>
     </p>
-    <p class="control" (click)="createPackage()">
+    <p class="control" (click)="insert()">
       <a class="button is-primary">
      Εισαγωγή
     </a>

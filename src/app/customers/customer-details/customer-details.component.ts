@@ -55,7 +55,7 @@ export class CustomerDetailsComponent implements OnInit {
 
   save() {
     if (this.isNew) {
-      this.service.insert(this.customer)
+      this.service.insert(this.customer);
       this.router.navigateByUrl('/customers');
       return;
     }

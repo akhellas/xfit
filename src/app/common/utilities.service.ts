@@ -37,4 +37,19 @@ export class UtilitesService {
         return Object.keys(e).map(k => e[k]);
     }
 
+    public formatDate(_date: Date): string {
+        var newDate = new Date(_date);
+        return newDate.getFullYear() + "-" + ("0" + (newDate.getMonth() + 1)).slice(-2) + "-" + ("0" + newDate.getDate()).slice(-2);
+    }
+
+    public addMonths(_date: string, months: number): Date {
+        if (_date && months) {
+            var date = new Date(_date);
+            date.setMonth(date.getMonth() + months);
+            return date;
+        }
+        return new Date();
+
+    }
+
 }
