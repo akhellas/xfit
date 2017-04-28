@@ -9,7 +9,8 @@ import { ProductDetailsComponent } from './product-details/product-details.compo
 
 const productsRoutes: Routes = [
   { path: 'products', component: ProductsListComponent },
-  { path: 'products/:id', component: ProductDetailsComponent }
+  { path: 'products/new', component: ProductDetailsComponent, data: [{ isNew: true }] },
+  { path: 'products/edit/:id', component: ProductDetailsComponent, data: [{ isNew: false }] }
 ];
 
 @NgModule({

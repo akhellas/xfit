@@ -3,6 +3,7 @@ export class Product {
     public name: string;
     public duration: number;
     public price: number;
-    public isPerVisit: boolean;
+    public isPerVisit: boolean = false;
     public isActive: boolean;
+    public companyId: string;
 }

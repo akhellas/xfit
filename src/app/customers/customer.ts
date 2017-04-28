@@ -4,6 +4,8 @@ export class Customer {
     public contactInfo: ContactInfo;
     public birthday: Date;
     public residenceInfo: Address;
+    public companyId: string;
+    public comments:string;
     constructor() {
         this.residenceInfo = new Address();
         this.contactInfo = new ContactInfo();
@@ -14,7 +16,7 @@ export class ContactInfo {
     public description: ContactTypes;
     public phone: string;
     constructor() {
-       
+
     }
 }
 

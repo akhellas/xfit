@@ -26,7 +26,7 @@
     </a>
   </p>
   <div class="panel-top-block" [ngClass]="{'panel-item': !showNewSub}">
-    <package-details *ngIf="!showNewSub" (onInsert)="onInsert($event)"></package-details>
+    <package-details *ngIf="!showNewSub" (exitForm)="onInsert($event)" style="width:100%"></package-details>
   </div>
   <p class="panel-tabs">
     <a (click)="paneltab = 0" [ngClass]="{'is-active': paneltab == 0}">Συνδρομές</a>

@@ -12,7 +12,17 @@
 
       <hr class="is-marginless">
       <div class="field">
-        <label class="label">Όνομα</label>
+        <label class="label">Εταιρία</label>
+        <p class="control">
+          <span class="select is-fullwidth ">
+                 <select [(ngModel)]="customer.companyId"  [disabled]="edit != 0 && !isNew"> 
+                    <option *ngFor="let comp of companyItems | async" [ngValue]="comp.$key">{{comp.name}}</option>
+                 </select>
+              </span>
+        </p>
+      </div>
+      <div class="field">
+        <label class="label ">Όνομα</label>
         <p class="control">
           <input class="input" [disabled]="edit != 0 && !isNew" [(ngModel)]="customer.name" type="text" placeholder="Εισάγετε όνομα">
         </p>
@@ -28,6 +38,12 @@
         <p class="control">
           <input class="input" [disabled]="edit != 0 && !isNew" type="date" [(ngModel)]="customer.birthday" placeholder="Εισάγετε Ημ/νια">
         </p>
+      </div>
+       <div class="field">
+        <label class="label ">Σημειώσεις</label>
+      
+          <textarea style="overflow:auto;resize:none;height:unset" rows="3" class="input" [disabled]="edit != 0 && !isNew" [(ngModel)]="customer.comments"  placeholder="Εισάγετε σχόλια"></textarea>
+       
       </div>
       <div class="block pull-right" *ngIf="edit == 0 && !isNew">
         <a class="button" (click)="cancelEditMode()">Άκυρο</a>

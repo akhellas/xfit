@@ -16,7 +16,7 @@ import { ProductsService } from '../../products/products.service';
   styleUrls: ['./package-details.component.sass']
 })
 export class PackageDetailsComponent implements OnInit {
-  @Output() onInsert = new EventEmitter<boolean>()
+  @Output() exitForm = new EventEmitter<boolean>()
   package: Package = new Package();
   items: Observable<any>;
   products: any;
@@ -46,11 +46,14 @@ export class PackageDetailsComponent implements OnInit {
     }
 
   }
+  cancel() {
+    this.exitForm.emit(true);
+  }
 
   insert() {
     if (this.product && this.package.Starts) {
       this.service.insert(this.package);
-      this.onInsert.emit(true);
+      this.exitForm.emit(true);
 
     } else {
       this.toastService.info("Συμπληρώστε Πακέτο και Έναρξη");

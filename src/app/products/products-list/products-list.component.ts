@@ -23,22 +23,21 @@ export class ProductsListComponent implements OnInit {
     this.items = this.service.items;
   }
 
-  onInsert() {
-    let product = new Product();
-    product.name = "Νέο";
-    product.duration = 1;
-    product.price = 50;
-    product.isPerVisit = false;
-    product.isActive = false;
-
-    this.service.insert(product);
-  }
 
   onEdit(item: any) {
-    this.router.navigate(['products', item.$key]);
+    this.router.navigate(['products/edit', item.$key]);
   }
 
   onDelete(item: any) {
     this.service.remove(item);
   }
+
+   onInsert() {
+    this.router.navigate(['products/new']);
+  }
+  onCancel(){
+     this.router.navigate(['products']);
+  }
+
+ 
 }

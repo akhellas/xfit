@@ -5,6 +5,7 @@ import { UtilitesService } from '../../common/utilities.service';
 import 'rxjs/add/operator/switchMap';
 
 import { CustomersService } from '../customers.service';
+import { CompaniesService } from '../../companies/companies.service';
 import { Customer, Address, ContactInfo, ContactTypes } from '../customer';
 
 @Component({
@@ -13,20 +14,23 @@ import { Customer, Address, ContactInfo, ContactTypes } from '../customer';
   styleUrls: ['./customer-details.component.sass']
 })
 export class CustomerDetailsComponent implements OnInit {
+  @Input() isNew: boolean;
+  companyItems: Observable<any>;
   customer: any = new Customer();
   temp: Customer = new Customer();
   contactTypes: any[];
-  @Input() isNew: boolean;
   isEdit: boolean = false;
   edit: number = -1;
 
   constructor(
     private route: ActivatedRoute,
     private router: Router,
-    private service: CustomersService
+    private service: CustomersService,
+    private companyService: CompaniesService
   ) { }
 
   ngOnInit() {
+    this.companyItems = this.companyService.items;
     this.contactTypes = UtilitesService.convertNamesAndValues(ContactTypes);
     if (!this.isNew) {
       this.route.params.subscribe(params => {

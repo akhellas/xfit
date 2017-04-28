@@ -7,6 +7,6 @@ import { ToastService } from '../toast.service';
 @Injectable()
 export class ProductsService extends ApiService {
   constructor(af: AngularFire, toastService: ToastService) {
-    super(af, toastService, 'companies/-Kfrps-nEI3ccNOS9eeI/products');
+    super(af, toastService, 'products');
   }
 }

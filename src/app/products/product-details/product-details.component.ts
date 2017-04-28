@@ -4,6 +4,7 @@ import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/switchMap';
 
 import { ProductsService } from '../products.service';
+import { CompaniesService } from '../../companies/companies.service';
 import { Product } from '../product';
 
 @Component({
@@ -12,21 +13,40 @@ import { Product } from '../product';
   styleUrls: ['./product-details.component.sass']
 })
 export class ProductDetailsComponent implements OnInit {
-  item: Observable<any> = new Observable<any>();
+  product: any = new Product();
+  isNew: boolean;
+  companyItems: Observable<any>;
 
   constructor(
     private route: ActivatedRoute,
     private router: Router,
-    private service: ProductsService
-  ) { }
+    private service: ProductsService,
+    private companyService: CompaniesService
+  ) {
+    this.isNew = route.snapshot.data[0]['isNew'];
+  }
 
   ngOnInit() {
-    this.route.params
-              .switchMap((params: Params) => this.service.item(params['id']))
-              .subscribe((item: any) => this.item = item);
+    this.companyItems = this.companyService.items;
+    if (!this.isNew) {
+      this.route.params.subscribe(params => {
+        this.service.item(params["id"]).subscribe(item => {
+          this.product = item;
+        });
+      });
+    }
   }
 
   save() {
-    this.service.update(this.item);
+    if (this.isNew) {
+      this.service.insert(this.product);
+      this.router.navigateByUrl('/products');
+      return;
+    }
+    this.service.update(this.product);
+  }
+
+  cancel() {
+    this.router.navigate(['products']);
   }
 }
